@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import java.sql.*;
 /**
  *
  * @author mateus.felix
@@ -33,5 +33,21 @@ public class Lanchonete extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
+      
+    private SqlHandler sql = new SqlHandler();
+    
+    
+    
+    public void Inicialzação(){
+        Connection conn = sql.Conect("localhost","3306","lanchonete");
+        Statement st = sql.state(conn);
+        
+        
+        sql.close(conn);
+    }
+    
+    
+    
     
 }
