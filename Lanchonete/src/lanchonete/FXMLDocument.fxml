@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="lanchonete.FXMLDocumentController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.7119309262166404" layoutX="4.0" layoutY="2.0" prefHeight="716.0" prefWidth="1276.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="Botão" layoutX="409.0" layoutY="223.0" mnemonicParsing="false" onAction="#alfafa" text="Button" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="-1.0" layoutY="-2.0" prefHeight="715.0" prefWidth="366.0">
+                     <children>
+                        <Label fx:id="mentira" prefHeight="265.0" prefWidth="365.0" text="fsouza lindão" />
+                        <ListView prefHeight="447.0" prefWidth="366.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
