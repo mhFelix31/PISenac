@@ -11,10 +11,10 @@ public class SqlHandler {
     //Metodos para administrar a conexão com sql
     //-----------------------------------------------------------------------
     
-    public Connection Conect(String ip,String porta, String schema){
+    public Connection Connect(String ip,String porta, String schema,String login, String senha){
         try{
             String url = "jdbc:mysql://"+ip+":"+porta+""+schema+"/escola";
-            return DriverManager.getConnection(url,"root","admin");
+            return DriverManager.getConnection(url,login,senha);
         }
         catch(Exception e){
             System.err.println("Exceção encontrada na conexão");

@@ -40,7 +40,7 @@ public class Lanchonete extends Application {
     
     
     public void Inicialzação(){
-        Connection conn = sql.Conect("localhost","3306","lanchonete");
+        Connection conn = sql.Connect("localhost","3306","lanchonete","root","admin");
         Statement st = sql.state(conn);
         
         

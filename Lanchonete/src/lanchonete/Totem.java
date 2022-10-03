@@ -10,13 +10,6 @@ package lanchonete;
  * @author mateus.felix
  */
 public class Totem {
-    
-    
-    public void GeradorDeLista(String Lista){
-           
-        
-    }
-    
-    
+  
     
 }
