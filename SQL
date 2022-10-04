@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `Cliente` (
   `idCliente` INT NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `Sobrenome` VARCHAR(45) NOT NULL,
+  `nascimento` DATETIME NOT NULL,
   `Instituição` VARCHAR(45) NOT NULL,
   `Cargo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`))
@@ -77,7 +78,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Pedido` (
   `idPedido` INT NOT NULL,
   `Status` VARCHAR(45) NOT NULL,
-  `Data` DATETIME NULL,
+  `Data` DATETIME NOT NULL,
   `Cliente_idCliente` INT NOT NULL,
   `Funcionarios_idFuncionarios` INT NOT NULL,
   `ValorTotal` FLOAT NULL,
