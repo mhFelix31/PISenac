@@ -17,7 +17,7 @@ public class Receita extends sqlBasic{
     public int[] quantidade;
 
     @Override
-    public void PullInfo() {
+    public String PullInfo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

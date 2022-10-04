@@ -5,6 +5,8 @@
  */
 package lanchonete.generic;
 
+import java.sql.Statement;
+
 /**
  *
  * @author mateus.felix
@@ -14,7 +16,7 @@ public abstract class sqlBasic {
     
     
     //Puxa informação da tabela
-    public abstract void PullInfo();
+    public abstract String PullInfo();
     
     //Manda informação para a tabela
     public abstract void SendInfo();

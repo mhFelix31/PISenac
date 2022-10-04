@@ -5,6 +5,8 @@
  */
 package lanchonete.generic;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
 import lanchonete.SqlHandler;
 
 /**
@@ -12,13 +14,12 @@ import lanchonete.SqlHandler;
  * @author mateus.felix
  */
 public class Cliente extends sqlBasic{
-    private int id;
+    private int id = 0;
     private String Nome;
     private String Sobrenome;
     private Data nascimento;
-    private int id_Instituição;
+    private String Instituicao;
     private String Cargo;
-    private String thumbnail,fullimage;
 
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
@@ -32,26 +33,30 @@ public class Cliente extends sqlBasic{
     public Data getNascimento() {return nascimento;}
     public void setNascimento(Data nascimento) {this.nascimento = nascimento;}
 
-    public int getId_Instituição() {return id_Instituição;}
-    public void setId_Instituição(int id_Instituição) {this.id_Instituição = id_Instituição;}
+    public String getId_Instituição() {return Instituicao;}
+    public void setId_Instituição(String Instituicao) {this.Instituicao = Instituicao;}
 
     public String getCargo() {return Cargo;}
     public void setCargo(String Cargo) {this.Cargo = Cargo;}
 
-    public String getThumbnail() {return thumbnail;}
-    public void setThumbnail(String thumbnail) {this.thumbnail = thumbnail;}
 
-    public String getFullimage() {return fullimage;}
-    public void setFullimage(String fullimage) {this.fullimage = fullimage;}
-
-    public Cliente(String Nome, String Sobrenome, Data nascimento, int id_Instituição, String Cargo, String thumbnail, String fullimage) {
+      public Cliente(int id,String Nome, String Sobrenome, Data nascimento, String Instituicao, String Cargo) {
+        this.id = id;
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.nascimento = nascimento;
-        this.id_Instituição = id_Instituição;
+        this.Instituicao = Instituicao;
         this.Cargo = Cargo;
-        this.thumbnail = thumbnail;
-        this.fullimage = fullimage;
+        
+        
+    }
+    
+    public Cliente(String Nome, String Sobrenome, Data nascimento, String Instituicao, String Cargo) {
+        this.Nome = Nome;
+        this.Sobrenome = Sobrenome;
+        this.nascimento = nascimento;
+        this.Instituicao = Instituicao;
+        this.Cargo = Cargo;
         
         
     }
@@ -60,15 +65,19 @@ public class Cliente extends sqlBasic{
         this.id = id;
     }
     
+    
     public Cliente(){
         
     }
     
     
     @Override
-    public void PullInfo() {
+    public String PullInfo() {
+        if (this.id != 0){
+            return null;
+        }
+        else return "Error";
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -79,12 +88,22 @@ public class Cliente extends sqlBasic{
     
     @Override
     public String[] colunas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] col = {"idCliente","Nome","Sobrenome","nascimento","Instituição","Cargo"};
+        return col;
+
     }
 
     @Override
     public String[] valores() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] val = new String[5];
+        val[0] = String.valueOf(id);
+        val[1] = String.valueOf(Nome);
+        val[2] = String.valueOf(Sobrenome);
+        val[3] = nascimento.sqlConvert();
+        val[4] = String.valueOf(Instituicao);
+        val[5] = String.valueOf(Cargo);
+        
+        return val;
     }
     
     

@@ -8,8 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Lanchonete.jar" size="5742" download="eager" />
+    <jar href="Lanchonete.jar" size="12739" download="eager" />
     <jar href="lib\junit-4.13.2.jar" size="384581" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.30.jar" size="2513563" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Lanchonete" >
     <param name="requiredFXVersion" value="8.0+"/>

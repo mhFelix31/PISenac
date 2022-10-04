@@ -1,6 +1,8 @@
 package lanchonete;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SqlHandler {
     
@@ -13,7 +15,7 @@ public class SqlHandler {
     
     public Connection Connect(String ip,String porta, String schema,String login, String senha){
         try{
-            String url = "jdbc:mysql://"+ip+":"+porta+""+schema+"/escola";
+            String url = "jdbc:mysql://"+ip+":"+porta+"/"+schema;
             return DriverManager.getConnection(url,login,senha);
         }
         catch(Exception e){
@@ -35,6 +37,27 @@ public class SqlHandler {
         return st;
     }
     
+    public ResultSet ReadCommand(Statement st,String command){
+        try{
+            return st.executeQuery(command);           
+            
+        }
+        catch(Exception e){            
+            System.err.println("Exceção encontrada na Execução de um comando");
+            System.err.println(e);
+        }
+        return null;
+    }
+    
+    public void SendCommand(Statement st, String command){
+        try{
+            st.executeUpdate(command);  
+        }
+        catch(Exception e){            
+            System.err.println("Exceção encontrada na Execução de um comando");
+            System.err.println(e);
+        }
+    }
     public void close(Connection con){
         try{
         con.close();
@@ -63,8 +86,11 @@ public class SqlHandler {
         return "";
     }
     
-    public String Select(String tabela,String coluna,String Condition){
+    public String SelectColuna(String tabela,String coluna,String Condition){
         return String.format("SELECT %s FROM %s WHERE %s", tabela, coluna, Condition);
+    }
+    public String SelectAll(String tabela){        
+        return String.format("SELECT * FROM %s ", tabela);
     }
     
     public String Delete(String tabela,String coluna,String Condition){

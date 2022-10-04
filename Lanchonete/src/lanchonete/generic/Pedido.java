@@ -14,7 +14,7 @@ import java.util.*;
 public class Pedido extends sqlBasic{
 
     @Override
-    public void PullInfo() {
+    public String PullInfo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

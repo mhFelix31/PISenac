@@ -11,6 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import lanchonete.generic.*;
 /**
  *
  * @author mateus.felix
@@ -35,18 +39,7 @@ public class Lanchonete extends Application {
     }
     
       
-    private SqlHandler sql = new SqlHandler();
-    
-    
-    
-    public void Inicialzação(){
-        Connection conn = sql.Connect("localhost","3306","lanchonete","root","admin");
-        Statement st = sql.state(conn);
-        
-        
-        sql.close(conn);
-    }
-    
+   
     
     
     
