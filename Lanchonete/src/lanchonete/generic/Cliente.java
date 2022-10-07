@@ -8,6 +8,7 @@ package lanchonete.generic;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import lanchonete.SqlHandler;
+import lanchonete.generic.coluna;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Cliente extends sqlBasic{
     private String Nome;
     private String Sobrenome;
     private Data nascimento;
-    private String Instituicao;
+    private float idInstituicao;
     private String Cargo;
 
     public int getId() {return id;}
@@ -33,29 +34,29 @@ public class Cliente extends sqlBasic{
     public Data getNascimento() {return nascimento;}
     public void setNascimento(Data nascimento) {this.nascimento = nascimento;}
 
-    public String getId_Instituição() {return Instituicao;}
-    public void setId_Instituição(String Instituicao) {this.Instituicao = Instituicao;}
+    public float getId_Instituição() {return idInstituicao;}
+    public void setId_Instituição(float Instituicao) {this.idInstituicao = Instituicao;}
 
     public String getCargo() {return Cargo;}
     public void setCargo(String Cargo) {this.Cargo = Cargo;}
 
 
-      public Cliente(int id,String Nome, String Sobrenome, Data nascimento, String Instituicao, String Cargo) {
+      public Cliente(int id,String Nome, String Sobrenome, Data nascimento, float idInstituicao, String Cargo) {
         this.id = id;
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.nascimento = nascimento;
-        this.Instituicao = Instituicao;
+        this.idInstituicao = idInstituicao;
         this.Cargo = Cargo;
         
         
     }
     
-    public Cliente(String Nome, String Sobrenome, Data nascimento, String Instituicao, String Cargo) {
+    public Cliente(String Nome, String Sobrenome, Data nascimento, float idInstituicao, String Cargo) {
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.nascimento = nascimento;
-        this.Instituicao = Instituicao;
+        this.idInstituicao = idInstituicao;
         this.Cargo = Cargo;
         
         
@@ -66,31 +67,50 @@ public class Cliente extends sqlBasic{
     }
     
     
-    public Cliente(){
-        
+    public Cliente(ResultSet rs){
+        try {
+            if (rs.next()) {
+                this.id = rs.getInt(colunas()[0].nome);
+                this.Nome = rs.getString(colunas()[1].nome);
+                this.Sobrenome = rs.getString(colunas()[2].nome);
+                //this.nascimento = new Data(String.valueOf((rs.getDate(colunas()[3].nome)));
+                this.idInstituicao = rs.getInt(colunas()[4].nome);
+                this.Cargo = rs.getString(colunas()[5].nome);
+            }
+        } catch (Exception e) {
+
+        }
     }
     
     
     @Override
     public String PullInfo() {
         if (this.id != 0){
-            return null;
+            return String.format("SELECT * FROM CLIENTE WHERE idCliente = %d",id);
         }
         else return "Error";
         
     }
+    
 
     @Override
     public void SendInfo(){        
         SqlHandler sql = new SqlHandler();
-        sql.Insert("Cliente", colunas(), valores());
+        sql.Insert("Cliente", colunasSql(), valores());
     }
     
     @Override
-    public String[] colunas() {
-        String[] col = {"idCliente","Nome","Sobrenome","nascimento","Instituição","Cargo"};
+    public coluna[] colunas() {
+        coluna[] col = {new coluna("idCliente",coluna.variavel.inteiro),new coluna("Nome",coluna.variavel.varchar),new coluna("Sobrenome",coluna.variavel.varchar),new coluna("nascimento",coluna.variavel.data),new coluna("Instituição",coluna.variavel.inteiro),new coluna("Cargo",coluna.variavel.varchar)};
         return col;
 
+    }
+    public String[] colunasSql(){
+        String[] col = new String[colunas().length];
+        for (int i = 0;i<colunas().length;i++){
+            col[i] = colunas()[i].nome;
+        }
+        return col;
     }
 
     @Override
@@ -100,7 +120,7 @@ public class Cliente extends sqlBasic{
         val[1] = String.valueOf(Nome);
         val[2] = String.valueOf(Sobrenome);
         val[3] = nascimento.sqlConvert();
-        val[4] = String.valueOf(Instituicao);
+        val[4] = String.valueOf(idInstituicao);
         val[5] = String.valueOf(Cargo);
         
         return val;

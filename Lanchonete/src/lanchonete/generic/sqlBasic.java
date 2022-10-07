@@ -22,7 +22,7 @@ public abstract class sqlBasic {
     public abstract void SendInfo();
     
     //Colunas da tabela
-    public abstract String[] colunas();
+    public abstract coluna[] colunas();
     //valores da tabela
     public abstract String[] valores();
     

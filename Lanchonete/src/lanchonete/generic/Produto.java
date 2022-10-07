@@ -16,7 +16,7 @@ public class Produto extends sqlBasic{
     private String nome;
     private float preco;
     private String descricao;
-    private String categoria;
+    private int idCategoria;
     private String tipoDeCobranca;
     private String materiaPrima;
     private String thumbnail,fullimage;
@@ -59,7 +59,7 @@ public class Produto extends sqlBasic{
         val[1] = String.valueOf(nome);
         val[2] = String.valueOf(preco);
         val[3] = String.valueOf(descricao);
-        val[4] = String.valueOf(categoria);
+        val[4] = String.valueOf(idCategoria);
         val[5] = String.valueOf(tipoDeCobranca);
         val[6] = String.valueOf(materiaPrima);
         val[7] = validade.sqlConvert();
