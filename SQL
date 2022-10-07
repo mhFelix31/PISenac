@@ -9,6 +9,26 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
+-- Table `Categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Categoria` (
+  `idCategoria` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCategoria`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `TipoDeCobrança`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `TipoDeCobrança` (
+  `idCobrança` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCobrança`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `Produto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Produto` (
@@ -16,12 +36,24 @@ CREATE TABLE IF NOT EXISTS `Produto` (
   `Nome` VARCHAR(45) NULL,
   `Preço` FLOAT NULL,
   `Descrição` VARCHAR(45) NULL,
-  `Categoria` VARCHAR(45) NULL,
-  `Tipo de Cobrança` VARCHAR(2) NULL,
   `MateriaPrima` TINYINT NULL,
   `Validade` DATETIME NULL,
   `Fabricação` DATETIME NULL,
-  PRIMARY KEY (`idProduto`))
+  `Categoria_idCategoria` INT NOT NULL,
+  `TipoDeCobrança_idCobrança` INT NOT NULL,
+  PRIMARY KEY (`idProduto`),
+  INDEX `fk_Produto_Categoria1_idx` (`Categoria_idCategoria` ASC) VISIBLE,
+  INDEX `fk_Produto_TipoDeCobrança1_idx` (`TipoDeCobrança_idCobrança` ASC) VISIBLE,
+  CONSTRAINT `fk_Produto_Categoria1`
+    FOREIGN KEY (`Categoria_idCategoria`)
+    REFERENCES `Categoria` (`idCategoria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Produto_TipoDeCobrança1`
+    FOREIGN KEY (`TipoDeCobrança_idCobrança`)
+    REFERENCES `TipoDeCobrança` (`idCobrança`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -42,16 +74,33 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `Instituição`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Instituição` (
+  `idInstituição` INT NOT NULL,
+  `Nome` VARCHAR(45) NULL,
+  `Desconto` VARCHAR(45) NULL,
+  PRIMARY KEY (`idInstituição`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Cliente` (
   `idCliente` INT NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `Sobrenome` VARCHAR(45) NOT NULL,
-  `nascimento` DATETIME NOT NULL,
-  `Instituição` VARCHAR(45) NOT NULL,
   `Cargo` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idCliente`))
+  `Instituição_idInstituição` INT NOT NULL,
+  `nascimento` DATE NOT NULL,
+  PRIMARY KEY (`idCliente`),
+  INDEX `fk_Cliente_Instituição1_idx` (`Instituição_idInstituição` ASC) VISIBLE,
+  CONSTRAINT `fk_Cliente_Instituição1`
+    FOREIGN KEY (`Instituição_idInstituição`)
+    REFERENCES `Instituição` (`idInstituição`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -78,7 +127,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Pedido` (
   `idPedido` INT NOT NULL,
   `Status` VARCHAR(45) NOT NULL,
-  `Data` DATETIME NOT NULL,
+  `Data` DATETIME NULL,
   `Cliente_idCliente` INT NOT NULL,
   `Funcionarios_idFuncionarios` INT NOT NULL,
   `ValorTotal` FLOAT NULL,
@@ -159,7 +208,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Horario` (
   `Produto_idProduto` INT NOT NULL,
-  `Horario` TIME NULL,
+  `HoraInicio` TIME NULL,
+  `HoraFim` TIME NULL,
   PRIMARY KEY (`Produto_idProduto`),
   CONSTRAINT `fk_Horario_Produto1`
     FOREIGN KEY (`Produto_idProduto`)
