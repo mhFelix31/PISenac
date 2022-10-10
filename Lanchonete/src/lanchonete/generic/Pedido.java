@@ -7,6 +7,7 @@ package lanchonete.generic;
 
 import lanchonete.generic.Produto;
 import java.util.*;
+import lanchonete.SqlHandler;
 /**
  *
  * @author mateus.felix
@@ -15,21 +16,31 @@ public class Pedido extends sqlBasic{
 
     @Override
     public String PullInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.id != 0){
+            return String.format("SELECT * FROM CLIENTE WHERE idCliente = %d",id);
+        }
+        else return "Error";
     }
 
     @Override
     public void SendInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SqlHandler sql = new SqlHandler();
+        sql.Insert("Cliente", colunasSql(), valores());
     }
-
+    
+      
     @Override
-    public String[] colunas() {
+    public coluna[] colunas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String[] valores() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String[] colunasSql() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     private enum status{

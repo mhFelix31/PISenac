@@ -19,7 +19,7 @@ public class Cliente extends sqlBasic{
     private String Nome;
     private String Sobrenome;
     private Data nascimento;
-    private float idInstituicao;
+    private int idInstituicao;
     private String Cargo;
 
     public int getId() {return id;}
@@ -34,14 +34,14 @@ public class Cliente extends sqlBasic{
     public Data getNascimento() {return nascimento;}
     public void setNascimento(Data nascimento) {this.nascimento = nascimento;}
 
-    public float getId_Instituição() {return idInstituicao;}
-    public void setId_Instituição(float Instituicao) {this.idInstituicao = Instituicao;}
+    public int getId_Instituição() {return idInstituicao;}
+    public void setId_Instituição(int Instituicao) {this.idInstituicao = Instituicao;}
 
     public String getCargo() {return Cargo;}
     public void setCargo(String Cargo) {this.Cargo = Cargo;}
 
 
-      public Cliente(int id,String Nome, String Sobrenome, Data nascimento, float idInstituicao, String Cargo) {
+      public Cliente(int id,String Nome, String Sobrenome, Data nascimento, int idInstituicao, String Cargo) {
         this.id = id;
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
@@ -52,7 +52,7 @@ public class Cliente extends sqlBasic{
         
     }
     
-    public Cliente(String Nome, String Sobrenome, Data nascimento, float idInstituicao, String Cargo) {
+    public Cliente(String Nome, String Sobrenome, Data nascimento, int idInstituicao, String Cargo) {
         this.Nome = Nome;
         this.Sobrenome = Sobrenome;
         this.nascimento = nascimento;
@@ -105,6 +105,8 @@ public class Cliente extends sqlBasic{
         return col;
 
     }
+    
+    @Override
     public String[] colunasSql(){
         String[] col = new String[colunas().length];
         for (int i = 0;i<colunas().length;i++){

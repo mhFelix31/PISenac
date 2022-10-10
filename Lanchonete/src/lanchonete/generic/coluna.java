@@ -13,7 +13,8 @@ public class coluna {
     public String nome;
     enum variavel{varchar,inteiro,flutuante,data}
     public variavel tipo;
-    
+    public String value;
+    public String tipoString;
     
     coluna (String nome, variavel tipo){
         this.nome = nome;

@@ -21,6 +21,8 @@ public class Produto extends sqlBasic{
     private String materiaPrima;
     private String thumbnail,fullimage;
     
+    private boolean produtofinal;
+    
     private Data validade;
     private Data fabricacao;
     
@@ -46,10 +48,18 @@ public class Produto extends sqlBasic{
     }
 
      @Override
-    public String[] colunas() {
-        String[] col = {"idProduto","Nome", "Preço", "Descrição", "Categoria", "Tipo de Cobrança", "MateriaPrima", "Validade", "Fabricação","thumbnail"};
+    public coluna[] colunas() {
+        coluna[] col = { new coluna("idProduto",coluna.variavel.inteiro),new coluna("Nome",coluna.variavel.varchar),new coluna( "Preço",coluna.variavel.flutuante),new coluna( "Descrição",coluna.variavel.varchar),new coluna("Categoria",coluna.variavel.varchar),new coluna("Tipo de Cobrança",coluna.variavel.varchar),new coluna("MateriaPrima",coluna.variavel.inteiro),new coluna( "Validade",coluna.variavel.data),new coluna( "Fabricação",coluna.variavel.data),new coluna("thumbnail",coluna.variavel.varchar),new coluna("fullimage",coluna.variavel.varchar)};
         return col;
-
+    }
+    
+    @Override
+    public String[] colunasSql(){
+        String[] col = new String[colunas().length];
+        for (int i = 0;i<colunas().length;i++){
+            col[i] = colunas()[i].nome;
+        }
+        return col;
     }
 
     @Override
@@ -69,7 +79,7 @@ public class Produto extends sqlBasic{
 
         return val;
     }
-
+    
     
     
     

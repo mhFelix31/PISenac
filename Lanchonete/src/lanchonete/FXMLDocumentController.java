@@ -53,10 +53,10 @@ public class FXMLDocumentController implements Initializable {
             while (rs.next()) {
                 
                 // tabelas : idCliente, Nome, Sobrenome, nascimento, Instituição, Cargo
-                clientes.add(new Cliente(rs.getInt("idCliente"),rs.getString("Nome"),rs.getString("Sobrenome"),new Data(String.valueOf(rs.getDate("nascimento"))), rs.getString("Instituição"), rs.getString("Cargo")));
+                clientes.add(new Cliente(rs.getInt("idCliente"),rs.getString("Nome"),rs.getString("Sobrenome"),new Data(String.valueOf(rs.getDate("nascimento"))), rs.getInt("idInstituição"), rs.getString("Cargo")));
             }
         } catch (Exception e) {
-
+            System.out.print(e);
         }
         sql.close(conn);
         

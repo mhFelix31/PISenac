@@ -23,6 +23,9 @@ public abstract class sqlBasic {
     
     //Colunas da tabela
     public abstract coluna[] colunas();
+    
+    
+    public abstract String[] colunasSql();
     //valores da tabela
     public abstract String[] valores();
     
