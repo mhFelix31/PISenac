@@ -41,6 +41,8 @@ CREATE TABLE IF NOT EXISTS `Produto` (
   `Fabricação` DATETIME NULL,
   `Categoria_idCategoria` INT NOT NULL,
   `TipoDeCobrança_idCobrança` INT NOT NULL,
+  `thumbnail` VARCHAR(45) NULL,
+  `fullimage` VARCHAR(45) NULL,
   PRIMARY KEY (`idProduto`),
   INDEX `fk_Produto_Categoria1_idx` (`Categoria_idCategoria` ASC) VISIBLE,
   INDEX `fk_Produto_TipoDeCobrança1_idx` (`TipoDeCobrança_idCobrança` ASC) VISIBLE,
