@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="50.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.FXMLLinhaTabelaController">
+    <stylesheets>
+        <URL value="@/View/Styles/fxmllinhatabela.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="produto_field_id" layoutX="14.0" layoutY="13.0" prefHeight="25.0" prefWidth="47.0" text="0000" />
+      <TextField fx:id="produto_field_nome" layoutX="72.0" layoutY="13.0" prefHeight="25.0" prefWidth="78.0" text="Tomate" />
+      <TextField fx:id="produto_field_preco" layoutX="157.0" layoutY="13.0" prefHeight="25.0" prefWidth="47.0" text="4,00" />
+      <TextField fx:id="produto_field_descricao" layoutX="212.0" layoutY="13.0" prefHeight="25.0" prefWidth="91.0" text="descriçaõtext" />
+      <RadioButton fx:id="radio_materiaPrima" layoutX="309.0" layoutY="15.0" mnemonicParsing="false" />
+      <MenuButton fx:id="menu_produto_categoria" layoutX="337.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Frutas">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+      <MenuButton fx:id="menu_produto_tipocobranca" layoutX="480.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="KG">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TextField fx:id="produto_field_image" layoutX="553.0" layoutY="10.0" prefHeight="25.0" prefWidth="136.0" text="C:/ArquivosDoSql/ImgTomate.PNG" />
+      <Button fx:id="produto_button_procurarimage" layoutX="700.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Pesquisar" />
+      <TextField fx:id="produto_field_thumb" layoutX="776.0" layoutY="10.0" prefHeight="25.0" prefWidth="136.0" text="C:/ArquivosDoSql/ImgTomateThumb.PNG" />
+      <Button fx:id="produto_button_procurarthumb" layoutX="921.0" layoutY="10.0" mnemonicParsing="false" text="Pesquisar" />
+   </children>
+</AnchorPane>

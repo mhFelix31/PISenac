@@ -61,9 +61,9 @@ public class FXMLDocumentController implements Initializable {
          });
          
         ObservableList<ItemListPedido> itemPedido = FXCollections.observableArrayList();
-        itemPedido.add(new ItemListPedido().setImagePedido(new Image("lanchonete/img4.jpg")).setTextPedido("AMBURG"));
-        itemPedido.add(new ItemListPedido().setImagePedido(new Image("lanchonete/img4.jpg")).setTextPedido("AMBURG"));
-        itemPedido.add(new ItemListPedido().setImagePedido(new Image("lanchonete/img4.jpg")).setTextPedido("AMBURG"));
+        itemPedido.add(new ItemListPedido().setImagePedido(new Image("lanchonete/img4.jpg")).setTextPedido("Hamburguer"));
+        itemPedido.add(new ItemListPedido().setImagePedido(new Image("lanchonete/img4.jpg")).setTextPedido("Hamburguer"));
+        itemPedido.add(new ItemListPedido().setImagePedido(new Image("lanchonete/img4.jpg")).setTextPedido("Hamburguer"));
         listPedido.setItems(itemPedido);
          
                

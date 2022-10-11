@@ -8,12 +8,13 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Lanchonete.jar" size="191214" download="eager" />
-    <jar href="lib\junit-jupiter-api-5.6.0.jar" size="154033" download="eager" />
-    <jar href="lib\junit-jupiter-engine-5.6.0.jar" size="209368" download="eager" />
-    <jar href="lib\junit-jupiter-params-5.6.0.jar" size="562272" download="eager" />
+    <jar href="Lanchonete.jar" size="193628" download="eager" />
+    <jar href="lib\junit-4.13.2.jar" size="384581" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.30.jar" size="2513563" download="eager" />
   </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Lanchonete" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="lanchonete.Lanchonete"  name="Lanchonete" />
   <update check="always"/>
 </jnlp>
