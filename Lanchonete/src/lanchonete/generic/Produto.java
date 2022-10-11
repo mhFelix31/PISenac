@@ -27,7 +27,7 @@ public class Produto extends sqlBasic{
     private Data fabricacao;
     
     private int Quantidade;
-    private List<String> localizacao = new ArrayList<String>();
+    private final List<String> localizacao = new ArrayList<>();
     
     
     

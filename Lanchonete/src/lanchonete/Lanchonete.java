@@ -5,25 +5,27 @@
  */
 package lanchonete;
 
+import controller.FXMLDocumentController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import lanchonete.generic.*;
 /**
  *
  * @author mateus.felix
  */
+
 public class Lanchonete extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(FXMLDocumentController.class.getResource(
+                "/View/FXMLDocument.fxml"));
+        
+        Parent root = loader.load(); 
         
         Scene scene = new Scene(root);
         
