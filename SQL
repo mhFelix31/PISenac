@@ -37,8 +37,6 @@ CREATE TABLE IF NOT EXISTS `Produto` (
   `Preço` FLOAT NULL,
   `Descrição` VARCHAR(45) NULL,
   `MateriaPrima` TINYINT NULL,
-  `Validade` DATETIME NULL,
-  `Fabricação` DATETIME NULL,
   `Categoria_idCategoria` INT NOT NULL,
   `TipoDeCobrança_idCobrança` INT NOT NULL,
   `thumbnail` VARCHAR(45) NULL,
@@ -66,6 +64,8 @@ CREATE TABLE IF NOT EXISTS `Estoque` (
   `Quantidade` INT NOT NULL,
   `Localização` VARCHAR(45) NULL,
   `Produto_idProduto` INT NOT NULL,
+  `Fabricação` DATE NOT NULL,
+  `Validade` DATE NOT NULL,
   PRIMARY KEY (`Produto_idProduto`),
   CONSTRAINT `fk_Estoque_Produto`
     FOREIGN KEY (`Produto_idProduto`)
