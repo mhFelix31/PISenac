@@ -17,9 +17,28 @@ import lanchonete.generic.coluna;
  */
 public class genericObj extends sqlBasic{
     
-    private coluna[] vars;
-
+    private coluna[] vars = new coluna[1];
+    private String tableName;
     
+    public String getColunaValue(int i){
+        return vars[i].value;
+    }
+    public String getColunaName(int i){
+        return vars[i].nome;
+    }
+    
+    public int ColunaSize(){
+        return vars.length;
+    }
+    
+    public String toString(){
+        String a = ".";
+        String loop = "";
+        for (int i = 0; i > vars.length; i++){
+            a = a + " " + " Coluna " + vars[i].nome+ " Tabela" +vars[i].value;
+        }
+        return a;
+    }
 
     public genericObj(coluna[] variaveis){
         this.vars = variaveis;
@@ -30,24 +49,23 @@ public class genericObj extends sqlBasic{
     public genericObj(ResultSet rs){
         try {
             ResultSetMetaData rsMetaData = rs.getMetaData();
+            tableName = rsMetaData.getTableName(1);
             vars = new coluna[rsMetaData.getColumnCount()];
-            
-            if (rs.next()) {
-                for(int i = 0; i < vars.length; i ++){
-                    vars[i].nome = rsMetaData.getColumnName(i);
-                    vars[i].tipoString = rsMetaData.getColumnTypeName(i);
-                    vars[i].value = rs.getString(vars[i].nome);                            
-                }
+           for(int i = 0; i < vars.length; i ++){
+                vars[i] = new coluna(rsMetaData.getColumnName(i+1),rs.getString(i+1),rsMetaData.getColumnTypeName(i+1));
             }
-        } catch (Exception e) {
             
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("ERROU");
         }
     }
     
     
     @Override
-    public String PullInfo() {
-        return "";
+    public String PullInfo(String condicional) {
+        
+        return String.format("SELECT * FROM %s WHERE ",tableName,condicional);
         
     }
     
@@ -55,13 +73,12 @@ public class genericObj extends sqlBasic{
     @Override
     public void SendInfo(){        
         SqlHandler sql = new SqlHandler();
-        sql.Insert("Cliente", colunasSql(), valores());
+        sql.Insert(tableName, colunasSql(), valores());
     }
     
     @Override
     public coluna[] colunas() {
-        //coluna[] col = {new coluna("idCliente",coluna.variavel.inteiro),new coluna("Nome",coluna.variavel.varchar),new coluna("Sobrenome",coluna.variavel.varchar),new coluna("nascimento",coluna.variavel.data),new coluna("Instituição",coluna.variavel.inteiro),new coluna("Cargo",coluna.variavel.varchar)};
-        return null;
+        return vars;
 
     }
     
@@ -76,14 +93,10 @@ public class genericObj extends sqlBasic{
 
     @Override
     public String[] valores() {
-        String[] val = new String[5];
-        /*val[0] = String.valueOf(id);
-        val[1] = String.valueOf(Nome);
-        val[2] = String.valueOf(Sobrenome);
-        val[3] = nascimento.sqlConvert();
-        val[4] = String.valueOf(idInstituicao);
-        val[5] = String.valueOf(Cargo);
-        */
+        String[] val = new String[colunas().length];
+        for (int i = 0;i<colunas().length;i++){
+            val[i] = colunas()[i].value;
+        }
         return val;
     }
     

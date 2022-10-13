@@ -11,13 +11,15 @@ package lanchonete.generic;
  */
 public class coluna {
     public String nome;
-    enum variavel{varchar,inteiro,flutuante,data}
-    public variavel tipo;
+    
     public String value;
+    
     public String tipoString;
     
-    coluna (String nome, variavel tipo){
+    public coluna(String nome, String value, String tipoString){
         this.nome = nome;
-        this.tipo = tipo;
+        this.value = value;
+        this.tipoString = tipoString;
     }
+    
 }

@@ -11,35 +11,13 @@ import java.util.*;
  *
  * @author mateus.felix
  */
-public class Receita extends sqlBasic{
-    public int idReceita;
-    public List<Produto> produtos = new ArrayList<Produto>();
-    public int[] quantidade;
+public class Receita extends genericObj{
 
-    @Override
-    public String PullInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Receita(coluna[] variaveis) {
+        super(variaveis);
     }
 
-    @Override
-    public void SendInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public coluna[] colunas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String[] valores() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String[] colunasSql() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     
     

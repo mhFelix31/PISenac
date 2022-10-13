@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLadminController">
+    <stylesheets>
+        <URL value="@/View/Styles/fxmladmin.css" />
+    </stylesheets>
+   <children>
+      <TabPane prefHeight="720.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Produtos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="18.0" prefWidth="114.0" text="Produtos" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Produto" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Nome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Preço(R$)" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Descrição" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Materia Prima" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="680.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Categoria" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="841.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Tipo de cobrança" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="1004.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Imagem" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane fx:id="produtoSP" layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane prefHeight="656.0" prefWidth="1123.0">
+                                       <children>
+                                          <ListView fx:id="list0" prefHeight="247.0" prefWidth="111.0" />
+                                          <ListView fx:id="list1" layoutX="110.0" prefHeight="247.0" prefWidth="117.0" />
+                                          <ListView fx:id="list2" layoutX="227.0" prefHeight="247.0" prefWidth="111.0" />
+                                          <ListView fx:id="list3" layoutX="338.0" prefHeight="247.0" prefWidth="200.0" />
+                                          <ListView fx:id="list4" layoutX="538.0" prefHeight="247.0" prefWidth="61.0" />
+                                          <ListView fx:id="list5" layoutX="638.0" prefHeight="247.0" prefWidth="139.0" />
+                                          <ListView fx:id="list6" layoutX="806.0" prefHeight="247.0" prefWidth="111.0" />
+                                          <ListView fx:id="list7" layoutX="917.0" prefHeight="247.0" prefWidth="207.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Receitas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="18.0" prefWidth="114.0" text="Receitas" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Receita" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Produto" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Quantidade" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Tipo Quantidade" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <FlowPane fx:id="flowPaneReceitas" prefHeight="666.0" prefWidth="1127.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Categorias">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="35.0" prefWidth="199.0" text="Categorias" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Categoria" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Nome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="1004.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Imagem" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0">
+                                       <children>
+                                          <ListView fx:id="list" prefHeight="610.0" prefWidth="1122.0" />
+                                       </children></AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Pedidos">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="18.0" prefWidth="114.0" text="Pedidos" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Pedido" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Status" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Data" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Cliente" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Funcionario" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="680.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Valor Total(R$)" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="841.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Produtos" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Estoque">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="18.0" prefWidth="114.0" text="Estoque" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Produto" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Quantidade" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Localização" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Fabricação" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Validade" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Funcionarios">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="35.0" prefWidth="267.0" text="Funcionarios" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Funcionario" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Nome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Sobrenome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Cargo" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Login" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="680.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Senha" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="841.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Turno" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="1004.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Horas Extras" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Clientes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="18.0" prefWidth="114.0" text="Clientes" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Cliente" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Nome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Sobrenome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Cargo" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Instituição" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="680.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Data de nascimento" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Parceiros">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="31.0" layoutY="31.0" prefHeight="646.0" prefWidth="1205.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Label id="title" contentDisplay="CENTER" layoutX="14.0" layoutY="24.0" prefHeight="18.0" prefWidth="114.0" text="Parceiros" textOverrun="CLIP" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="1012.0" layoutY="30.0" promptText="Pesquisar..." />
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="ID_Instituição" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Nome" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Desconto" textAlignment="CENTER" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
+                              <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

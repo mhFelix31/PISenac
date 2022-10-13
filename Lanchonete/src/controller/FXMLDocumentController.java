@@ -51,11 +51,11 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-       
-         list.setCellFactory( ly -> {
+       /////////////////////////////////
+        list.setCellFactory( ly -> {
             return FXMLItemListController.newInstance();
         });
-         
+         //////////////////////////////////////
          listPedido.setCellFactory(ly -> {
              return FXMLItemListPedidoController.newInstance();
          });
@@ -67,22 +67,16 @@ public class FXMLDocumentController implements Initializable {
         listPedido.setItems(itemPedido);
          
                
-         
+         ////////////////////////////////////////////////////////////////////////////
         ObservableList<ItemdeLista> item = FXCollections.observableArrayList();
 
-        item.add(new ItemdeLista()
-                .setCategoria("Felipe Souza")
-        .setImage(new Image("lanchonete/img4.jpg")));
-        item.add(new ItemdeLista().setCategoria("Souza")
-        .setImage(new Image("lanchonete/img4.jpg")));
-        item.add(new ItemdeLista().setCategoria("Felipe")
-        .setImage(new Image("lanchonete/img4.jpg")));
-        item.add(new ItemdeLista().setCategoria("mortadela")
-        .setImage(new Image("lanchonete/img4.jpg")));
-        item.add(new ItemdeLista().setCategoria("ultimo")
-        .setImage(new Image("lanchonete/img4.jpg")));
+        item.add(new ItemdeLista().setCategoria("Felipe Souza").setImage(new Image("lanchonete/img4.jpg")));
+        item.add(new ItemdeLista().setCategoria("Souza").setImage(new Image("lanchonete/img4.jpg")));
+        item.add(new ItemdeLista().setCategoria("Felipe").setImage(new Image("lanchonete/img4.jpg")));
+        item.add(new ItemdeLista().setCategoria("mortadela").setImage(new Image("lanchonete/img4.jpg")));
+        item.add(new ItemdeLista().setCategoria("ultimo").setImage(new Image("lanchonete/img4.jpg")));
         list.setItems(item);
-        
+        ///////////////////////////////////////////////////////////////////////////////
         listMain.add(new ListaPrincipal(new Image("lanchonete/img4.jpg")));
         listMain.add(new ListaPrincipal(new Image("lanchonete/img4.jpg")));
         listMain.add(new ListaPrincipal(new Image("lanchonete/img4.jpg")));
@@ -101,7 +95,7 @@ public class FXMLDocumentController implements Initializable {
          flow.setVgap(20);
          flow.setHgap(50);
          flow.setPadding(new Insets(20, 20, 20, 20));
-         flow.setAlignment(Pos.CENTER);
+         flow.setAlignment(Pos.TOP_LEFT);
          flow.setPrefWrapLength(500); 
          flow.setPrefWidth(500);
          

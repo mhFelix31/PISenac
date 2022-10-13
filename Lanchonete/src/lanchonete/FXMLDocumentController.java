@@ -53,7 +53,7 @@ public class FXMLDocumentController implements Initializable {
             while (rs.next()) {
                 
                 // tabelas : idCliente, Nome, Sobrenome, nascimento, Instituição, Cargo
-                clientes.add(new Cliente(rs.getInt("idCliente"),rs.getString("Nome"),rs.getString("Sobrenome"),new Data(String.valueOf(rs.getDate("nascimento"))), rs.getInt("idInstituição"), rs.getString("Cargo")));
+                //clientes.add(new Cliente(rs.getInt("idCliente"),rs.getString("Nome"),rs.getString("Sobrenome"),new Data(String.valueOf(rs.getDate("nascimento"))), rs.getInt("idInstituição"), rs.getString("Cargo")));
             }
         } catch (Exception e) {
             System.out.print(e);
@@ -61,7 +61,7 @@ public class FXMLDocumentController implements Initializable {
         sql.close(conn);
         
         for(int i = 0; i < clientes.size(); i++){
-            System.out.println("CLIENTE:"+clientes.get(i).getNome());
+            //System.out.println("CLIENTE:"+clientes.get(i).getNome());
         }
     }
     //-----------------------------------

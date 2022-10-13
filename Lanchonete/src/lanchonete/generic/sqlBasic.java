@@ -16,7 +16,7 @@ public abstract class sqlBasic {
     
     
     //Puxa informação da tabela
-    public abstract String PullInfo();
+    public abstract String PullInfo(String condicional);
     
     //Manda informação para a tabela
     public abstract void SendInfo();

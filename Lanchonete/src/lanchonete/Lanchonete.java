@@ -5,7 +5,7 @@
  */
 package lanchonete;
 
-import controller.FXMLDocumentController;
+import controller.FXMLadminController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,8 +22,7 @@ public class Lanchonete extends Application {
     public void start(Stage stage) throws Exception {
         
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(FXMLDocumentController.class.getResource(
-                "/View/FXMLDocument.fxml"));
+        loader.setLocation(FXMLadminController.class.getResource("/View/FXMLadmin.fxml"));
         
         Parent root = loader.load(); 
         

@@ -87,7 +87,7 @@ public class SqlHandler {
     }
     
     public String SelectColuna(String tabela,String coluna,String Condition){
-        return String.format("SELECT %s FROM %s WHERE %s", tabela, coluna, Condition);
+        return String.format("SELECT %s FROM %s %s", coluna,tabela,  Condition);
     }
     public String SelectAll(String tabela){        
         return String.format("SELECT * FROM %s ", tabela);

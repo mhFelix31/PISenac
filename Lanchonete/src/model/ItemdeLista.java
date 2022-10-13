@@ -16,7 +16,7 @@ import javafx.scene.image.Image;
 public class ItemdeLista {
     
      private Image image; 
-     private final StringProperty categoria = new SimpleStringProperty();
+     private StringProperty categoria = new SimpleStringProperty();
     
     public ItemdeLista(){
         
