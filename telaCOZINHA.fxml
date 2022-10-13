@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: E6E6E6;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLLanchoneteCozinhaController">
+    <stylesheets>
+        <URL value="@/View/Styles/fxmllanchonetecozinha.css" />
+    </stylesheets>
+   <children>
+      <Button alignment="CENTER" layoutX="464.0" layoutY="306.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="106.0" style="-fx-background-color: D1F0EF;" text="Confirmar" textFill="#2a862f">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button alignment="CENTER" layoutX="29.0" layoutY="306.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="106.0" style="-fx-background-color: FFCBCB;" text="Cancelar" textFill="#a10000">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ImageView fitHeight="161.0" fitWidth="232.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Desktop/hamburger.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="29.0" layoutY="180.0" prefHeight="41.0" prefWidth="171.0" text="Hamburger" textAlignment="CENTER">
+         <font>
+            <Font name="Constantia Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="246.0" layoutY="40.0" prefHeight="161.0" prefWidth="314.0" promptText="Se não houver exceções, esse texto será exibido." style="-fx-border-color: E6E6E6;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
