@@ -72,14 +72,14 @@
                                  <content>
                                     <AnchorPane prefHeight="656.0" prefWidth="1123.0">
                                        <children>
-                                          <ListView fx:id="list0" prefHeight="247.0" prefWidth="111.0" />
-                                          <ListView fx:id="list1" layoutX="110.0" prefHeight="247.0" prefWidth="117.0" />
-                                          <ListView fx:id="list2" layoutX="227.0" prefHeight="247.0" prefWidth="111.0" />
-                                          <ListView fx:id="list3" layoutX="338.0" prefHeight="247.0" prefWidth="200.0" />
-                                          <ListView fx:id="list4" layoutX="538.0" prefHeight="247.0" prefWidth="61.0" />
-                                          <ListView fx:id="list5" layoutX="638.0" prefHeight="247.0" prefWidth="139.0" />
-                                          <ListView fx:id="list6" layoutX="806.0" prefHeight="247.0" prefWidth="111.0" />
-                                          <ListView fx:id="list7" layoutX="917.0" prefHeight="247.0" prefWidth="207.0" />
+                                          <ListView fx:id="list0" prefHeight="660.0" prefWidth="111.0" />
+                                          <ListView fx:id="list1" layoutX="110.0" prefHeight="662.0" prefWidth="117.0" />
+                                          <ListView fx:id="list2" layoutX="227.0" prefHeight="669.0" prefWidth="111.0" />
+                                          <ListView fx:id="list3" layoutX="338.0" prefHeight="670.0" prefWidth="200.0" />
+                                          <ListView fx:id="list4" layoutX="538.0" prefHeight="672.0" prefWidth="61.0" />
+                                          <ListView fx:id="list5" layoutX="638.0" prefHeight="679.0" prefWidth="139.0" />
+                                          <ListView fx:id="list6" layoutX="806.0" prefHeight="695.0" prefWidth="111.0" />
+                                          <ListView fx:id="list7" layoutX="917.0" prefHeight="695.0" prefWidth="207.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>

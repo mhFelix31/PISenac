@@ -20,8 +20,16 @@ public class genericObj extends sqlBasic{
     private coluna[] vars = new coluna[1];
     private String tableName;
     
+    public String getTabela(){
+        return tableName;
+    }
+    
     public String getColunaValue(int i){
         return vars[i].value;
+    }
+    
+    public void setColunaValue(int i,String value){
+        vars[i].value = value;
     }
     public String getColunaName(int i){
         return vars[i].nome;
@@ -30,6 +38,7 @@ public class genericObj extends sqlBasic{
     public int ColunaSize(){
         return vars.length;
     }
+    
     
     public String toString(){
         String a = ".";

@@ -20,7 +20,7 @@
       </MenuButton>
       <TextField fx:id="produto_field_image" editable="false" layoutX="927.0" layoutY="12.0" prefHeight="25.0" prefWidth="136.0" text="C:/ArquivosDoSql/ImgTomate.PNG" />
       <TextField fx:id="produto_field_nome" editable="false" layoutX="119.0" layoutY="11.0" prefHeight="25.0" prefWidth="117.0" text="Tomate" />
-      <Button fx:id="produto_button_editar" disable="true" layoutX="1063.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Editar" />
+      <Button fx:id="produto_button_editar" layoutX="1063.0" layoutY="13.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="59.0" text="Editar" />
       <MenuButton fx:id="menu_produto_tipocobranca" disable="true" layoutX="818.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="KG">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />

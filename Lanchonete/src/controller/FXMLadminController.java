@@ -60,7 +60,11 @@ public class FXMLadminController implements Initializable {
     
     private SqlHandler sql = new SqlHandler();
      
-
+    private String login = "root";
+    private String senha = "admin";
+    
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -102,7 +106,7 @@ public class FXMLadminController implements Initializable {
                 cB.setSelected((produtos.get(i).getColunaValue(4).equals("1")));
                 cB.disableProperty().set(true);
                 list4.getItems().add(cB);
-                Connection conn = sql.Connect("localhost","3306","lanchonete","admin","admin");
+                Connection conn = connect();
                 Statement st = sql.state(conn);
                 ResultSet rs = sql.ReadCommand(st, sql.SelectColuna("Categoria","nome", String.format("WHERE %s = %s","IdCategoria",produtos.get(i).getColunaValue(5))));
                 
@@ -138,7 +142,9 @@ public class FXMLadminController implements Initializable {
             try{
             //list.setCellFactory( ly -> {return FXMLLinhaTabelaController.newInstance();});
             ObservableList<genericObj> itemPedido = FXCollections.observableArrayList();
-             
+            
+            
+            
             itemPedido.addAll(GetInfoDB("Produto"));
             list.setItems(itemPedido);
             }
@@ -158,12 +164,31 @@ public class FXMLadminController implements Initializable {
                 FXMLLoader loader = new FXMLLoader();
                 //loader.setLocation(FXMLLinhaTabelaController.class.getResource("/View/FXMLLinhaTabela.fxml"));
                 AnchorPane ap = null;
+                Connection conn = connect();
+                Statement st = sql.state(conn);
+                List<String> categoria = new ArrayList<>();
+                List<String> tipoCobranca = new ArrayList<>();
+                ResultSet rs = sql.ReadCommand(st, sql.SelectAll("Categoria"));
+                while(rs.next()){
+                    categoria.add(rs.getString(2));
+                }
+                rs = sql.ReadCommand(st, sql.SelectAll("TipoDeCobrança"));
+                while(rs.next()){                
+                    tipoCobranca.add(rs.getString(2));
+                }          
+            
+                
+                
                 for(int i = 0; i< itemPedido.size(); i++){  
                     loader = new FXMLLoader();
                     loader.setLocation(FXMLLinhaTabelaController.class.getResource("/View/FXMLLinhaTabela.fxml"));
                     ap = loader.load();                    
                     flowPaneReceitas.getChildren().add(ap);
                     ltControllers.add(loader.getController());
+                    ltControllers.get(i).setGO(itemPedido.get(i));
+                    ltControllers.get(i).categorias = categoria;
+                    ltControllers.get(i).tipoCobrancas = tipoCobranca;
+                    ltControllers.get(i).MainScreen = this;
                 }
             }
             catch(Exception e){
@@ -177,7 +202,7 @@ public class FXMLadminController implements Initializable {
         
     private List<genericObj> GetInfoDB(String DB){
         List<genericObj> gO = new ArrayList<genericObj>();
-        Connection conn = sql.Connect("localhost","3306","lanchonete","admin","admin");
+        Connection conn = connect();
         Statement st = sql.state(conn);
         ResultSet rs = sql.ReadCommand(st, sql.SelectAll(DB));
         try {
@@ -188,12 +213,23 @@ public class FXMLadminController implements Initializable {
             System.out.print(e);
         }
         sql.close(conn);
-        return gO;
-        
-        
-        
+        return gO;       
     }
     
+    private Connection connect(){
+        return sql.Connect("localhost","3306","lanchonete",login,senha);
+    }
+    
+    
+    
+    
+    public void UpdateInfo(genericObj gO,String condition){
+        Connection conn = connect();
+        Statement st = sql.state(conn);
+        System.out.println(sql.Update(gO.getTabela(), gO.colunasSql(), gO.valores(), condition));
+        sql.SendCommand(st, sql.Update(gO.getTabela(), gO.colunasSql(), gO.valores(), condition));
+        
+    }
     
     
 }

@@ -79,7 +79,7 @@ public class SqlHandler {
         if (Igualador(colunas, valores).equals("ERROR")) {
             return "ERROR";
         }
-        return String.format("UPDATE %s SET %s WHERE %s", tabela, Igualador(colunas, valores), Condition);
+        return String.format("UPDATE %s SET %s %s", tabela, Igualador(colunas, valores), Condition);
     }
     
     public String Create(){
@@ -94,7 +94,7 @@ public class SqlHandler {
     }
     
     public String Delete(String tabela,String coluna,String Condition){
-        return String.format("DELETE %s FROM %s WHERE %s", tabela, coluna, Condition);
+        return String.format("DELETE %s FROM %s %s", tabela, coluna, Condition);
     }
     //-------------------------------------------------------------------------------
     
@@ -125,10 +125,10 @@ public class SqlHandler {
 
         } else {
             for (int i = 0; i < valoresiniciais.length; i++) {
-                if (i == valoresiniciais.length) {
-                    text += valoresiniciais[i] + "=" + valoresfinais[i];
+                if (i == valoresiniciais.length-1) {
+                    text += valoresiniciais[i] + "= '" + valoresfinais[i]+"'";
                 } else {
-                    text += valoresiniciais[i] + " = " + valoresfinais[i] + ",";
+                    text += valoresiniciais[i] + " = '" + valoresfinais[i] + "',";
                 }
             }
         }
