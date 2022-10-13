@@ -7,89 +7,45 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema lanchonete
+-- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Table `Categoria`
+-- Schema lanchonete
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Categoria` (
+CREATE SCHEMA IF NOT EXISTS `lanchonete` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `lanchonete` ;
+
+-- -----------------------------------------------------
+-- Table `lanchonete`.`categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lanchonete`.`categoria` (
   `idCategoria` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCategoria`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `TipoDeCobrança`
+-- Table `lanchonete`.`instituição`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TipoDeCobrança` (
-  `idCobrança` INT NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idCobrança`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `Produto`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Produto` (
-  `idProduto` INT NOT NULL,
-  `Nome` VARCHAR(45) NULL,
-  `Preço` FLOAT NULL,
-  `Descrição` VARCHAR(45) NULL,
-  `MateriaPrima` TINYINT NULL,
-  `Categoria_idCategoria` INT NOT NULL,
-  `TipoDeCobrança_idCobrança` INT NOT NULL,
-  `thumbnail` VARCHAR(45) NULL,
-  `fullimage` VARCHAR(45) NULL,
-  PRIMARY KEY (`idProduto`),
-  INDEX `fk_Produto_Categoria1_idx` (`Categoria_idCategoria` ASC) VISIBLE,
-  INDEX `fk_Produto_TipoDeCobrança1_idx` (`TipoDeCobrança_idCobrança` ASC) VISIBLE,
-  CONSTRAINT `fk_Produto_Categoria1`
-    FOREIGN KEY (`Categoria_idCategoria`)
-    REFERENCES `Categoria` (`idCategoria`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Produto_TipoDeCobrança1`
-    FOREIGN KEY (`TipoDeCobrança_idCobrança`)
-    REFERENCES `TipoDeCobrança` (`idCobrança`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `Estoque`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Estoque` (
-  `Quantidade` INT NOT NULL,
-  `Localização` VARCHAR(45) NULL,
-  `Produto_idProduto` INT NOT NULL,
-  `Fabricação` DATE NOT NULL,
-  `Validade` DATE NOT NULL,
-  PRIMARY KEY (`Produto_idProduto`),
-  CONSTRAINT `fk_Estoque_Produto`
-    FOREIGN KEY (`Produto_idProduto`)
-    REFERENCES `Produto` (`idProduto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `Instituição`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Instituição` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`instituição` (
   `idInstituição` INT NOT NULL,
-  `Nome` VARCHAR(45) NULL,
-  `Desconto` VARCHAR(45) NULL,
+  `Nome` VARCHAR(45) NULL DEFAULT NULL,
+  `Desconto` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idInstituição`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Cliente`
+-- Table `lanchonete`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Cliente` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`cliente` (
   `idCliente` INT NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `Sobrenome` VARCHAR(45) NOT NULL,
@@ -100,125 +56,181 @@ CREATE TABLE IF NOT EXISTS `Cliente` (
   INDEX `fk_Cliente_Instituição1_idx` (`Instituição_idInstituição` ASC) VISIBLE,
   CONSTRAINT `fk_Cliente_Instituição1`
     FOREIGN KEY (`Instituição_idInstituição`)
-    REFERENCES `Instituição` (`idInstituição`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `lanchonete`.`instituição` (`idInstituição`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Funcionarios`
+-- Table `lanchonete`.`tipodecobrança`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Funcionarios` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`tipodecobrança` (
+  `idCobrança` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCobrança`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `lanchonete`.`produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lanchonete`.`produto` (
+  `idProduto` INT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NULL DEFAULT NULL,
+  `Preço` FLOAT NULL DEFAULT NULL,
+  `Descrição` VARCHAR(45) NULL DEFAULT NULL,
+  `MateriaPrima` TINYINT NOT NULL,
+  `Categoria_idCategoria` INT NULL DEFAULT NULL,
+  `TipoDeCobrança_idCobrança` INT NULL DEFAULT NULL,
+  `fullimage` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`idProduto`),
+  UNIQUE INDEX `idProduto_UNIQUE` (`idProduto` ASC) VISIBLE,
+  INDEX `fk_Produto_Categoria1_idx` (`Categoria_idCategoria` ASC) VISIBLE,
+  INDEX `fk_Produto_TipoDeCobrança1_idx` (`TipoDeCobrança_idCobrança` ASC) VISIBLE,
+  CONSTRAINT `fk_Produto_Categoria1`
+    FOREIGN KEY (`Categoria_idCategoria`)
+    REFERENCES `lanchonete`.`categoria` (`idCategoria`),
+  CONSTRAINT `fk_Produto_TipoDeCobrança1`
+    FOREIGN KEY (`TipoDeCobrança_idCobrança`)
+    REFERENCES `lanchonete`.`tipodecobrança` (`idCobrança`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 25
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `lanchonete`.`estoque`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lanchonete`.`estoque` (
+  `Quantidade` INT NOT NULL,
+  `Localização` VARCHAR(45) NULL DEFAULT NULL,
+  `Produto_idProduto` INT NOT NULL,
+  `Fabricação` DATE NOT NULL,
+  `Validade` DATE NOT NULL,
+  PRIMARY KEY (`Produto_idProduto`),
+  CONSTRAINT `fk_Estoque_Produto`
+    FOREIGN KEY (`Produto_idProduto`)
+    REFERENCES `lanchonete`.`produto` (`idProduto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `lanchonete`.`funcionarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lanchonete`.`funcionarios` (
   `idFuncionarios` INT NOT NULL,
-  `Nome` VARCHAR(45) NULL,
-  `Sobrenome` VARCHAR(45) NULL,
-  `Cargo` VARCHAR(45) NULL,
-  `Login` VARCHAR(45) NULL,
-  `Senha` VARCHAR(45) NULL,
-  `horaTrabalhadas` FLOAT NULL,
-  `horasExtras` FLOAT NULL,
-  `Turno` VARCHAR(20) NULL,
+  `Nome` VARCHAR(45) NULL DEFAULT NULL,
+  `Sobrenome` VARCHAR(45) NULL DEFAULT NULL,
+  `Cargo` VARCHAR(45) NULL DEFAULT NULL,
+  `Login` VARCHAR(45) NULL DEFAULT NULL,
+  `Senha` VARCHAR(45) NULL DEFAULT NULL,
+  `horaTrabalhadas` FLOAT NULL DEFAULT NULL,
+  `horasExtras` FLOAT NULL DEFAULT NULL,
+  `Turno` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`idFuncionarios`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Pedido`
+-- Table `lanchonete`.`horario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Pedido` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`horario` (
+  `Produto_idProduto` INT NOT NULL,
+  `HoraInicio` TIME NULL DEFAULT NULL,
+  `HoraFim` TIME NULL DEFAULT NULL,
+  PRIMARY KEY (`Produto_idProduto`),
+  CONSTRAINT `fk_Horario_Produto1`
+    FOREIGN KEY (`Produto_idProduto`)
+    REFERENCES `lanchonete`.`produto` (`idProduto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `lanchonete`.`pedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `lanchonete`.`pedido` (
   `idPedido` INT NOT NULL,
   `Status` VARCHAR(45) NOT NULL,
-  `Data` DATETIME NULL,
+  `Data` DATETIME NULL DEFAULT NULL,
   `Cliente_idCliente` INT NOT NULL,
   `Funcionarios_idFuncionarios` INT NOT NULL,
-  `ValorTotal` FLOAT NULL,
+  `ValorTotal` FLOAT NULL DEFAULT NULL,
   PRIMARY KEY (`idPedido`),
   INDEX `fk_Pedido_Cliente1_idx` (`Cliente_idCliente` ASC) VISIBLE,
   INDEX `fk_Pedido_Funcionarios1_idx` (`Funcionarios_idFuncionarios` ASC) VISIBLE,
   CONSTRAINT `fk_Pedido_Cliente1`
     FOREIGN KEY (`Cliente_idCliente`)
-    REFERENCES `Cliente` (`idCliente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `lanchonete`.`cliente` (`idCliente`),
   CONSTRAINT `fk_Pedido_Funcionarios1`
     FOREIGN KEY (`Funcionarios_idFuncionarios`)
-    REFERENCES `Funcionarios` (`idFuncionarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `lanchonete`.`funcionarios` (`idFuncionarios`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ProdutosNosPedidos`
+-- Table `lanchonete`.`receitas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ProdutosNosPedidos` (
-  `Pedido_idPedido` INT NOT NULL,
-  `Produto_idProduto` INT NOT NULL,
-  `Quantidade` VARCHAR(45) NULL,
-  PRIMARY KEY (`Pedido_idPedido`, `Produto_idProduto`),
-  INDEX `fk_Pedido_has_Produto_Produto1_idx` (`Produto_idProduto` ASC) VISIBLE,
-  INDEX `fk_Pedido_has_Produto_Pedido1_idx` (`Pedido_idPedido` ASC) VISIBLE,
-  CONSTRAINT `fk_Pedido_has_Produto_Pedido1`
-    FOREIGN KEY (`Pedido_idPedido`)
-    REFERENCES `Pedido` (`idPedido`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Pedido_has_Produto_Produto1`
-    FOREIGN KEY (`Produto_idProduto`)
-    REFERENCES `Produto` (`idProduto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `Receitas`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Receitas` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`receitas` (
   `idReceitas` INT NOT NULL,
   `idProdutoFinal` INT NOT NULL,
   PRIMARY KEY (`idReceitas`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ProdutosNasReceitas`
+-- Table `lanchonete`.`produtosnasreceitas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ProdutosNasReceitas` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`produtosnasreceitas` (
   `Receitas_idReceitas` INT NOT NULL,
   `Produto_idProduto` INT NOT NULL,
   `Quantidade` FLOAT NOT NULL,
   PRIMARY KEY (`Receitas_idReceitas`, `Produto_idProduto`),
   INDEX `fk_Receitas_has_Produto_Produto1_idx` (`Produto_idProduto` ASC) VISIBLE,
   INDEX `fk_Receitas_has_Produto_Receitas1_idx` (`Receitas_idReceitas` ASC) VISIBLE,
-  CONSTRAINT `fk_Receitas_has_Produto_Receitas1`
-    FOREIGN KEY (`Receitas_idReceitas`)
-    REFERENCES `Receitas` (`idReceitas`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Receitas_has_Produto_Produto1`
     FOREIGN KEY (`Produto_idProduto`)
-    REFERENCES `Produto` (`idProduto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `lanchonete`.`produto` (`idProduto`),
+  CONSTRAINT `fk_Receitas_has_Produto_Receitas1`
+    FOREIGN KEY (`Receitas_idReceitas`)
+    REFERENCES `lanchonete`.`receitas` (`idReceitas`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Horario`
+-- Table `lanchonete`.`produtosnospedidos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Horario` (
+CREATE TABLE IF NOT EXISTS `lanchonete`.`produtosnospedidos` (
+  `Pedido_idPedido` INT NOT NULL,
   `Produto_idProduto` INT NOT NULL,
-  `HoraInicio` TIME NULL,
-  `HoraFim` TIME NULL,
-  PRIMARY KEY (`Produto_idProduto`),
-  CONSTRAINT `fk_Horario_Produto1`
+  `Quantidade` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`Pedido_idPedido`, `Produto_idProduto`),
+  INDEX `fk_Pedido_has_Produto_Produto1_idx` (`Produto_idProduto` ASC) VISIBLE,
+  INDEX `fk_Pedido_has_Produto_Pedido1_idx` (`Pedido_idPedido` ASC) VISIBLE,
+  CONSTRAINT `fk_Pedido_has_Produto_Pedido1`
+    FOREIGN KEY (`Pedido_idPedido`)
+    REFERENCES `lanchonete`.`pedido` (`idPedido`),
+  CONSTRAINT `fk_Pedido_has_Produto_Produto1`
     FOREIGN KEY (`Produto_idProduto`)
-    REFERENCES `Produto` (`idProduto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `lanchonete`.`produto` (`idProduto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
