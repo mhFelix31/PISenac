@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="114.0" prefWidth="1122.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.FXMLTabelaPedidoController">
+ <stylesheets>
+        <URL value="@/View/Styles/fxmllinhatabela.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="pedido_field_id" editable="false" layoutX="32.0" layoutY="23.0" prefHeight="25.0" prefWidth="73.0" promptText="Id..." />
+      <TextField fx:id="pedido_field_valorTotal" editable="false" layoutX="624.0" layoutY="23.0" prefHeight="25.0" prefWidth="117.0" promptText="ValorTotal..." />
+      <TextField fx:id="pedido_field_funcionario" editable="false" layoutX="506.0" layoutY="23.0" prefHeight="25.0" prefWidth="111.0" promptText="Funcionario..." />
+      <TextField fx:id="pedido__field_cliente" editable="false" layoutX="372.0" layoutY="23.0" prefHeight="25.0" prefWidth="126.0" promptText="Cliente...." />
+      <MenuButton fx:id="pedido_menu_status" disable="true" layoutX="105.0" layoutY="23.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+      <Button fx:id="produto_button_editar" layoutX="1032.0" layoutY="23.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="59.0" text="Editar" />
+      <Button fx:id="deleteButton" layoutX="8.0" layoutY="10.0" mnemonicParsing="false" onAction="#DELETEPress" prefHeight="25.0" prefWidth="21.0" text="X" textFill="RED" visible="false" />
+      <DatePicker fx:id="pedido_data" layoutX="230.0" layoutY="23.0" prefHeight="25.0" prefWidth="143.0" />
+      <ListView fx:id="pedido_list_produto" layoutX="762.0" layoutY="10.0" prefHeight="81.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

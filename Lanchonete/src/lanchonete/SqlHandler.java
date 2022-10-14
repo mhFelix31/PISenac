@@ -94,7 +94,7 @@ public class SqlHandler {
     }
     
     public String Delete(String tabela,String coluna,String Condition){
-        return String.format("DELETE %s FROM %s %s", tabela, coluna, Condition);
+        return String.format("DELETE FROM %s %s", tabela, Condition);
     }
     //-------------------------------------------------------------------------------
     
@@ -106,13 +106,14 @@ public class SqlHandler {
             return "(" + incremento + Inside[0] + incremento + ")";
         }
         for (int i = 0; i < Inside.length; i++) {
-            if (i == 0) {
-                text = "(" + incremento + Inside[i] + incremento;
-            } else if (i == Inside.length) {
-                text += "," + incremento + Inside[i] + incremento;
-            } else {
-                text += "," + incremento + Inside[i] + incremento;
-            }
+            
+                if (i == 0) {
+                    text = "(" + incremento + Inside[i] + incremento;
+                } else if (i == Inside.length-1) {
+                    text += "," + incremento + Inside[i] + incremento + ")";
+                } else {
+                    text += "," + incremento + Inside[i] + incremento;
+                }
         }
         return text;
     }

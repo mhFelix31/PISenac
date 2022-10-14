@@ -70,20 +70,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane fx:id="produtoSP" layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane prefHeight="656.0" prefWidth="1123.0">
-                                       <children>
-                                          <ListView fx:id="list0" prefHeight="660.0" prefWidth="111.0" />
-                                          <ListView fx:id="list1" layoutX="110.0" prefHeight="662.0" prefWidth="117.0" />
-                                          <ListView fx:id="list2" layoutX="227.0" prefHeight="669.0" prefWidth="111.0" />
-                                          <ListView fx:id="list3" layoutX="338.0" prefHeight="670.0" prefWidth="200.0" />
-                                          <ListView fx:id="list4" layoutX="538.0" prefHeight="672.0" prefWidth="61.0" />
-                                          <ListView fx:id="list5" layoutX="638.0" prefHeight="679.0" prefWidth="139.0" />
-                                          <ListView fx:id="list6" layoutX="806.0" prefHeight="695.0" prefWidth="111.0" />
-                                          <ListView fx:id="list7" layoutX="917.0" prefHeight="695.0" prefWidth="207.0" />
-                                       </children>
-                                    </AnchorPane>
+                                    <FlowPane fx:id="flowPaneProdutos" prefHeight="666.0" prefWidth="1127.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="864.0" layoutY="30.0" mnemonicParsing="false" onAction="#produtos_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -117,17 +107,12 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Label id="column" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="81.0" prefHeight="18.0" prefWidth="114.0" text="Tipo Quantidade" textAlignment="CENTER" textOverrun="CLIP">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <FlowPane fx:id="flowPaneReceitas" prefHeight="666.0" prefWidth="1127.0" />
-                                 </content>
-                              </ScrollPane>
+                                    <FlowPane fx:id="flowPaneReceitas" prefHeight="543.0" prefWidth="1126.0" />
+                                 </content></ScrollPane>
+                              <Button layoutX="869.0" layoutY="28.0" mnemonicParsing="false" onAction="#receitas_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -164,12 +149,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0">
-                                       <children>
-                                          <ListView fx:id="list" prefHeight="610.0" prefWidth="1122.0" />
-                                       </children></AnchorPane>
+                                    <FlowPane fx:id="flowPaneCategoria" prefHeight="543.0" prefWidth="1126.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="878.0" layoutY="29.0" mnemonicParsing="false" onAction="#categorias_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -226,9 +209,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                    <FlowPane fx:id="flowPanePedidos" prefHeight="543.0" prefWidth="1126.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="852.0" layoutY="24.0" mnemonicParsing="false" onAction="#pedido_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -275,9 +259,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                    <FlowPane fx:id="flowPaneEstoque" prefHeight="543.0" prefWidth="1126.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="872.0" layoutY="35.0" mnemonicParsing="false" onAction="#estoque_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -339,9 +324,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                    <FlowPane fx:id="flowPaneFuncionarios" prefHeight="543.0" prefWidth="1126.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="862.0" layoutY="33.0" mnemonicParsing="false" onAction="#funcionario_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -393,9 +379,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                    <FlowPane fx:id="flowPaneClientes" prefHeight="543.0" prefWidth="1126.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="870.0" layoutY="32.0" mnemonicParsing="false" onAction="#cliente_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>
@@ -432,9 +419,10 @@
                               <Separator layoutX="39.0" layoutY="101.0" opacity="0.2" prefHeight="0.0" prefWidth="1112.0" />
                               <ScrollPane layoutX="32.0" layoutY="99.0" prefHeight="546.0" prefWidth="1141.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="713.0" prefWidth="1123.0" />
+                                    <FlowPane fx:id="flowPaneParceiros" prefHeight="543.0" prefWidth="1126.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="878.0" layoutY="29.0" mnemonicParsing="false" onAction="#Parceiro_button_add" prefHeight="25.0" prefWidth="126.0" text="Adicionar" />
                            </children>
                         </Pane>
                      </children>

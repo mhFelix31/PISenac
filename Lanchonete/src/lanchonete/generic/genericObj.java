@@ -20,6 +20,10 @@ public class genericObj extends sqlBasic{
     private coluna[] vars = new coluna[1];
     private String tableName;
     
+    public void setTabela(String tableName){
+        this.tableName = tableName;
+    }
+    
     public String getTabela(){
         return tableName;
     }

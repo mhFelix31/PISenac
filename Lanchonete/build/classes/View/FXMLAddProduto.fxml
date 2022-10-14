@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="355.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLAddProdutoController">
+    <stylesheets>
+        <URL value="@/View/Styles/fxmllinhatabela.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="produto_field_nome" layoutX="107.0" layoutY="35.0" prefHeight="25.0" prefWidth="123.0" promptText="Nome..." />
+      <TextField fx:id="produto_field_preco" layoutX="107.0" layoutY="68.0" prefHeight="25.0" prefWidth="123.0" promptText="Preço..." />
+      <TextField fx:id="produto_field_descricao" layoutX="73.0" layoutY="100.0" prefHeight="66.0" prefWidth="200.0" promptText="Descrição..." />
+      <CheckBox fx:id="produto_check_materiaprima" layoutX="114.0" layoutY="175.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="123.0" text="Materia Prima" />
+      <MenuButton fx:id="menu_produto_categoria" layoutX="102.0" layoutY="205.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Frutas">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+      <MenuButton fx:id="menu_produto_tipocobranca" layoutX="117.0" layoutY="242.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="KG">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TextField fx:id="produto_field_image" layoutX="105.0" layoutY="281.0" prefHeight="25.0" prefWidth="136.0" promptText="Caminho Imagem..." />
+      <Button fx:id="produto_button_adicionar" layoutX="71.0" layoutY="337.0" mnemonicParsing="false" onAction="#addProduto" prefHeight="25.0" prefWidth="72.0" text="Adicionar" />
+      <Button fx:id="produto_button_limpar" cancelButton="true" layoutX="199.0" layoutY="337.0" mnemonicParsing="false" onAction="#Clear" prefHeight="25.0" prefWidth="59.0" text="Limpar" />
+   </children>
+</AnchorPane>

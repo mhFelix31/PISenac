@@ -20,16 +20,17 @@
       </MenuButton>
       <TextField fx:id="produto_field_image" editable="false" layoutX="927.0" layoutY="12.0" prefHeight="25.0" prefWidth="136.0" text="C:/ArquivosDoSql/ImgTomate.PNG" />
       <TextField fx:id="produto_field_nome" editable="false" layoutX="119.0" layoutY="11.0" prefHeight="25.0" prefWidth="117.0" text="Tomate" />
-      <Button fx:id="produto_button_editar" disable="true" layoutX="1063.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Editar" />
+      <Button fx:id="produto_button_editar" layoutX="1063.0" layoutY="13.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="59.0" text="Editar" />
       <MenuButton fx:id="menu_produto_tipocobranca" disable="true" layoutX="818.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="KG">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <TextField fx:id="produto_field_id" editable="false" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="104.0" text="0000" />
+      <TextField fx:id="produto_field_id" editable="false" layoutX="41.0" layoutY="10.0" prefHeight="25.0" prefWidth="73.0" text="0000" />
       <TextField fx:id="produto_field_preco" editable="false" layoutX="239.0" layoutY="12.0" prefHeight="25.0" prefWidth="111.0" text="4,00" />
-      <CheckBox disable="true" layoutX="582.0" layoutY="17.0" mnemonicParsing="false" />
+      <CheckBox fx:id="produto_check_materiaprima" disable="true" layoutX="582.0" layoutY="17.0" mnemonicParsing="false" />
       <TextField fx:id="produto_field_descricao" editable="false" layoutX="350.0" layoutY="13.0" prefHeight="25.0" prefWidth="200.0" text="descriçaõtext" />
+      <Button fx:id="deleteButton" layoutX="8.0" layoutY="10.0" mnemonicParsing="false" onAction="#DELETEPress" prefHeight="25.0" prefWidth="21.0" text="X" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

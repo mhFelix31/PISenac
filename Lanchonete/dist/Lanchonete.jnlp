@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Lanchonete.jar" size="194264" download="eager" />
+    <jar href="Lanchonete.jar" size="226598" download="eager" />
     <jar href="lib\junit-4.13.2.jar" size="384581" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.30.jar" size="2513563" download="eager" />
   </resources>
