@@ -1,0 +1,61 @@
+#categorias{
+    height: 380px;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    justify-content: space-between;
+
+}
+#categorias .categoria-lanche{
+    border: 2px solid #c0bab6;
+    border-radius: 15px;
+    padding: 8px;
+    color: #363949;
+    display: grid;
+}
+#categorias .categoria-lanche .titulo{
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#categorias .categoria-lanche .botao-confirma{
+    width: 130px;
+    height: 30px;
+    color: #232323;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px;
+    border: 1px solid #232323a9;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(#41f1b6 0%, #232323b7 100%);
+}
+#categorias .categoria-lanche .botao-cancela{
+    width: 130px;
+    height: 30px;
+    color: #232323;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px;
+    border: 1px solid #232323a9;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(#ff7782 0%, #232323b7 100%);
+}
+img{
+    border: 1px solid #979390;
+    border-radius: 10px;
+}
+body{
+    font-family: poppins, sans-serif;
+    background-color: #f6f6f9;
+}
+nav li{
+    text-align: right;
+    font-family: poppins, sans-serif;
+    font-size: 18px;
+    color: solid #7380ec;
+}
