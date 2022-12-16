@@ -53,8 +53,9 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
-    public void ListarPorId(@PathVariable int id) {
+    public ProdutoDTO ListarPorId(@PathVariable int id) {
         System.out.println("Id: "+ id);
+        return new ProdutoDTO(repository.getReferenceById(id));
     }
 
 

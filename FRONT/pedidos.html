@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Pedidos</title>
     <!--MATERIAL CDN-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!--STYLEESHEET-->
@@ -29,11 +29,11 @@
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="pedidos.html">
+                <a href="#" class="active">
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Pedidos</h3>
                 </a>
-                <a href="#" class="active">
+                <a href="produtos.html" >
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Produtos</h3>
                 </a>
@@ -75,11 +75,11 @@
                 </form>
             </div>
             <div class="recent-orders">
-                <h2>Produtos</h2>
+                <h2>Pedidos</h2>
                 <table id="dados">
                     <thead>
                         <tr>
-                            <th>Codigo do Produto</th>
+                            <th>Codigo do Pedido</th>
                             <th>Nome</th>
                             <th>Preço Venda</th>
                             <th>É Materia prima?</th>
@@ -111,7 +111,7 @@
             </div>
 
 
-            <script src="js/produtoCRUD.js"></script>
+            <script src="js/pedidoCRUD.js"></script>
             <script src="js/index.js"></script>
 
 </body>

@@ -1,8 +1,8 @@
-const sideMenu = document.querySelector("aside");
-const menuBtn = document.querySelector("#menu-btn");
-const closeBtn = document.querySelector("#close-btn");
-const themeToggler = document.querySelector(".theme-toggler");
 
+const sideMenu = getElement("aside");
+const menuBtn = getElement("#menu-btn");
+const closeBtn = getElement("#close-btn");
+const themeToggler = getElement(".theme-toggler");
 //mostrar barra lateral
 menuBtn.addEventListener('click', () => {
     sideMenu.style.display = 'block';
@@ -21,17 +21,12 @@ themeToggler.addEventListener('click', () =>{
     themeToggler.querySelector('span:nth-child(2)').classList.toggler('active')
 })
 
-Pedidos.forEach(pedido => {
-    const tr = document.createElement('tr');
-    const trContent = `
-                        <td>${pedido.nomeProduto}</td>
-                        <td>${pedido.numeroProduto}</td>
-                        <td>${pedido.statusPagamento}</td>
-                        <td class="${pedido.envio ===
-                            'Recusado' ? 'danger' : pedido.
-                            envio === 'Pendente' ? 'warning'
-                            : 'primary' }">${pedido.envio}</td>
-                        `;
-        tr.innerHTML = trContent;
-     document.querySelector('table tbody').appendChild(tr);
-});
+
+// Função para reduzir a escrita na captura de elementos HTML
+function getElement(element) {
+  return document.querySelector(element);
+}
+
+
+
+
