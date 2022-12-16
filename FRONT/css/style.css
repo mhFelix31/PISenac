@@ -83,6 +83,7 @@ h1{
 
 h2{
     font-size: 1.4rem;
+    margin-bottom: 10px;
 }
 
 h3{
@@ -694,6 +695,8 @@ main .recent-orders a{
     border: 1px solid #bbb;
     padding: 5px;
     text-align: left;
+    border: none;
+    padding: 10px;
   }
 
 }
@@ -708,23 +711,24 @@ main .recent-orders a{
 }
 .inputado{
     margin-left: 1%;
-    
-    border-radius: 5%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .inputadoButton{   
     margin-left: 1%;
     width: 15%; 
-    height: 20px;
-    border-radius: 5%;
+    padding: 10px;
+    border-radius: 10px;
 
 }
 .regular-checkbox{
-	width: 20px;
-	height: 20px;
-	border: 2px solid #555555;
+    width: 20px;
+    border: 2px solid #555555;
 	background-clip: content-box;
-	padding: 3px;
+    padding: 10px;
+    margin-left: 10px;
 }
 
 .regular-checkbox:checked {
