@@ -5,7 +5,7 @@ function getElement(element) {
   }
 
 function OpenXHR(method, id) {
-    xhr.open(method, "http://localhost:8080/produtos" + id);
+    xhr.open(method, "http://localhost:8082/produtos" + id);
     // Set the request headers
     xhr.setRequestHeader("Content-Type", "application/json");
 }
@@ -29,6 +29,9 @@ function Post(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca,
         if (xhr.status != 200) {
             // If the response is not successful, handle the error
             console.error("An error occurred: " + xhr.status);
+        }
+        else{
+            console.log(xhr.status);
         }
     }
     
@@ -94,7 +97,7 @@ function ReadWithID(id) {
 
 
 function Put(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca, fullimage) {
-    OpenXHR("PUT", id);
+    OpenXHR("PUT",'/'+ id);
     var data = {
         "nome": nome,
         "preco": preco,
@@ -119,7 +122,7 @@ function Put(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca, 
 }
 
 function Delete(id) {
-    OpenXHR("DELETE", id);
+    OpenXHR("DELETE", '/'+id);
     xhr.send();
     // Wait for the server to respond, then handle the response
     xhr.onload = function () {
@@ -141,6 +144,6 @@ function Delete(id) {
 
 
 function Refresh(){
-    document.location.reload(true);
+    //document.location.reload(true);
 }
 ;
