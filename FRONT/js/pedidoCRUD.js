@@ -12,18 +12,17 @@ function Data(id,status,date,idCliente,idFuncionario,valor){
 }
 
 function OpenXHR(method,id){
-    xhr.open(method,"http://localhost:8080/pedidos"+id);
+    xhr.open(method,"http://localhost:8082/pedidos"+id);
     // Set the request headers
     xhr.setRequestHeader("Content-Type", "application/json");
 }
 
 window.onload = Read();
 
-function Post(id,status,date,idCliente,idFuncionario,valor){
+function Post(status,date,valor){
     OpenXHR("POST",'');
     var data = {
         "status": status,
-        "date": date,
         "valor": valor
     }
     var JSONData = JSON.stringify(data);
@@ -95,7 +94,7 @@ function ReadWithID(id){
 }
 
 function Put(id,status,date,idCliente,idFuncionario,valor){
-    OpenXHR("PUT",id);
+    OpenXHR("PUT",'/'+id);
     
     var data = {
         "id": id,
@@ -126,7 +125,7 @@ function Put(id,status,date,idCliente,idFuncionario,valor){
 }
 
 function Delete(id){
-    OpenXHR("DELETE",id);
+    OpenXHR("DELETE",'/'+id);
     xhr.send();
     // Wait for the server to respond, then handle the response
     xhr.onload = function() {
@@ -148,7 +147,7 @@ function Delete(id){
 
 
 function Refresh(){
-    document.location.reload(true);
+    //document.location.reload(true);
 }
 
 ;
