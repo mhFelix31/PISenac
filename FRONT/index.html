@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tela de Gerenciamento</title>
+		<!--MATERIAL CDN-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+		<!--STYLEESHEET-->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="icons8-high-voltage-96.png">
+						<h2>Flash <span class="danger"> Food</span></h2>
+					</div>
+					<div class="close" id="close-btn">
+						<span class="material-icons-sharp">close</span>
+					</div>
+				</div>
+				<div class="sidebar">
+					<a href=# class="active">
+						<span class="material-icons-sharp">grid_view</span>
+						<h3>Dashboard</h3>
+					</a>
+					<a href="#">
+						<span class="material-icons-sharp">receipt_long</span>
+						<h3>Pedidos</h3>
+					</a>
+					<a href="produtos.html">
+						<span class="material-icons-sharp">inventory</span>
+						<h3>Produtos</h3>
+					</a>
+					<a href="#">
+						<span class="material-icons-sharp">mail_outline</span>
+						<h3>Mensagens</h3>
+						<span class="message-count">5</span>
+					</a>
+					<a href="#">
+						<span class="material-icons-sharp">settings</span>
+						<h3>Opções</h3>
+					</a>
+					<a href="#">
+						<span class="material-icons-sharp">logout</span>
+						<h3>Logout</h3>
+					</a>
+
+            </div>
+
+        </aside>
+        <!-- FIM DA SESSÃO ASIDE-->
+        <main>
+            <h1>Dashboard </h1>
+
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">analytics</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total vendas</h3>
+                            <h1>R$25.024</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Ultimas 24Horas</small>
+                </div>
+                <!------- FIM DE VENDAS ------>
+                        <div class="expenses">
+                            <span class="material-icons-sharp">bar_chart</span>
+                            <div class="middle">
+                                <div class="left">
+                                    <h3>Total de Despesas</h3>
+                                    <h1>R$14.160</h1>
+                                </div>
+                                <div class="progress">
+                                    <svg>
+                                        <circle cx="38" cy="38" r="36"></circle>
+                                    </svg>
+                                    <div class="number">
+                                        <p>62%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <small class="text-muted">Ultimas 24Horas</small>
+                        </div>
+                        <!------- FIM DE DESPESAS ------>
+                                <div class="income">
+                                    <span class="material-icons-sharp">stacked_line_chart</span>
+                                    <div class="middle">
+                                        <div class="left">
+                                            <h3>Total de renda</h3>
+                                            <h1>R$10.864</h1>
+                                        </div>
+                                        <div class="progress">
+                                            <svg>
+                                                <circle cx="38" cy="38" r="36"></circle>
+                                            </svg>
+                                            <div class="number">
+                                                <p>44%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Ultimas 24Horas</small>
+                                </div>
+                                <!------- FIM DE RENDA ------>
+            </div>
+            <!----- FIM DOS INSIGHTS ----->
+            <div class="recent-orders">
+                <h2> Pedidos Recentes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome Produto</th>
+                            <th>Numero Produto</th>
+                            <th>Pagamento</th>
+                            <th>Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+
+                    </tbody>
+                </table>
+                <a href="#">Mostrar todos</a>
+            </div>
+            
+        </main>
+        <!----------- FIM DA MAIN ------------->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active" >light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Olá, <b>Julian</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="c:\Users\Jpzin\.vscode\Landing page\WhatsApp Image 2022-11-01 at 15.17.17.jpeg">
+                    </div>
+                </div>
+            </div>
+            <!-- FIM DO TOPO-->
+            <div class="recent-updates">
+                <h2>Ultimas Atualizações</h2>
+                <div class="updates">
+                    <!--Mostrar Atualizações dos Pedidos-->
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="">
+                        </div>
+                        <div class="message">
+                            <p class="warning"><b>Atendente 1</b> fez o pedido <b>85631</b></p>
+                            <small class="text-muted">2 minutos atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="">
+                        </div>
+                        <div class="message">
+                            <p class="danger"><b>Cozinha</b> Cancelou o pedido <b>95345</b></p>
+                            <small class="text-muted">5 minutos atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="">
+                        </div>
+                        <div class="message">
+                            <p class="success"><b>Cozinha</b> Entregou o pedido <b>23812</b></p>
+                            <small class="text-muted">12 minutos atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="">
+                        </div>
+                        <div class="message">
+                            <p class="success"><b>Cozinha</b> Entregou o pedido <b>98234</b></p>
+                            <small class="text-muted">13 minutos atrás</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------- Fim de atualizações recentes-------->
+            <div class="sales-analytics">
+                <h2>Analise de vendas</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">shopping_cart</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Pedidos via Ifood</h3>
+                            <small class="text-muted;">Ultimas 24horas</small>
+                        </div>
+                        <h5 class="success">+39%</h5>
+                        <h3>38</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">local_mall</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Pedidos via Totem</h3>
+                            <small class="text-muted;">Ultimas 24horas</small>
+                        </div>
+                        <h5 class="danger">-7%</h5>
+                        <h3>110</h3>
+                    </div>
+                </div>
+                <div class="item costumers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Clientes Satisfeitos</h3>
+                            <small class="text-muted;">Ultimas 24horas</small>
+                        </div>
+                        <h5 class="sucess">+75%</h5>
+                        <h3>89</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/pedidos.js"></script>
+    <script src="js/index.js"></script>
+    
+</body>
+</html>
