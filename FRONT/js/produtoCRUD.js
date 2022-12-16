@@ -1,6 +1,8 @@
 var xhr = new XMLHttpRequest();
 
-
+function getElement(element) {
+    return document.querySelector(element);
+  }
 
 function OpenXHR(method, id) {
     xhr.open(method, "http://localhost:8080/produtos" + id);
@@ -11,38 +13,30 @@ function OpenXHR(method, id) {
 window.onload = Read();
 
 function Post(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca, fullimage) {
-    OpenXHR("POST");
+    OpenXHR("POST",'');
     var data = {
-        "nome": $nome,
-        "preco": $preco,
-        "descricao": $descricao,
-        "materiaPrima": $materiaPrima,
-        "idCategoria": $idCategoria,
-        "idCobranca": $idCobranca,
-        "fullimage": $fullimage
+        "nome": nome,
+        "preco": preco,
+        "descricao": descricao,
+        "materiaPrima": materiaPrima?true:false
     }
-
+    var JSONData = JSON.stringify(data);
+    console.log(JSONData);
     // Send the request to the server
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSONData);
     // Wait for the server to respond, then handle the response
     xhr.onload = function () {
-        if (xhr.status == 200) {
-            // If the response is successful, do something with the data
-            var responseData = JSON.parse(xhr.response);
-
-            //Dizer q deu
-
-            // ...
-        } else {
+        if (xhr.status != 200) {
             // If the response is not successful, handle the error
             console.error("An error occurred: " + xhr.status);
         }
     }
-    Read();
+    
+    Refresh();
 }
 
 function Read() {
-    OpenXHR("GET", '');
+    OpenXHR("GET", '?size=10');
 
     xhr.send();
     // Wait for the server to respond, then handle the response
@@ -54,13 +48,13 @@ function Read() {
             responseData.content.forEach(produto => {
                 const tr = document.createElement('tr');
                 const trContent = `
-      <td>${produto.id}</td>
-      <td>${produto.nome}</td>
-      <td>${produto.preco}</td>
-      <td>${produto.materiaPrima}</td>
-      `;
+                <td>${produto.id}</td>
+                <td>${produto.nome}</td>
+                <td>${produto.preco}</td>
+                <td>${produto.materiaPrima}</td>
+                `;
                 tr.innerHTML = trContent;
-                document.querySelector('table tbody').appendChild(tr);
+                getElement(".ReadTable").appendChild(tr);
             });
 
             // ...
@@ -71,27 +65,24 @@ function Read() {
     }
 }
 
-function Put(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca, fullimage) {
-    OpenXHR("PUT", id);
-    var data = {
-        "nome": $nome,
-        "preco": $preco,
-        "descricao": $descricao,
-        "materiaPrima": $materiaPrima,
-        "idCategoria": $idCategoria,
-        "idCobranca": $idCobranca,
-        "fullimage": $fullimage
-    }
+function ReadWithID(id) {
+    OpenXHR("GET", '/'+id);
 
-    // Send the request to the server
-    xhr.send(JSON.stringify(data));
+    xhr.send();
     // Wait for the server to respond, then handle the response
     xhr.onload = function () {
         if (xhr.status == 200) {
             // If the response is successful, do something with the data
             var responseData = JSON.parse(xhr.response);
-
-            //Dizer q deu
+           
+            
+                const trContent = `
+                <td>${responseData.id}</td>
+                <td>${responseData.nome}</td>
+                <td>${responseData.preco}</td>
+                <td>${responseData.materiaPrima}</td>
+                `;
+                getElement(".pesquisaRead").innerHTML = trContent;
 
             // ...
         } else {
@@ -99,8 +90,32 @@ function Put(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca, 
             console.error("An error occurred: " + xhr.status);
         }
     }
+}
+
+
+function Put(id, nome, preco, descricao, materiaPrima, idCategoria, idCobranca, fullimage) {
+    OpenXHR("PUT", id);
+    var data = {
+        "nome": nome,
+        "preco": preco,
+        "descricao": descricao,
+        "materiaPrima": materiaPrima?true:false,
+        "idCategoria": idCategoria,
+        "idCobranca": idCobranca,
+        "fullimage": fullimage
+    }
+
+    // Send the request to the server
+    xhr.send(JSON.stringify(data));
+    // Wait for the server to respond, then handle the response
+    xhr.onload = function () {
+        if (xhr.status != 200) {
+            // If the response is not successful, handle the error
+            console.error("An error occurred: " + xhr.status);
+        }
+    }
     
-    Read();
+    Refresh();
 }
 
 function Delete(id) {
@@ -121,7 +136,11 @@ function Delete(id) {
         }
     }
     
-    Read();
+    Refresh();
 }
 
+
+function Refresh(){
+    document.location.reload(true);
+}
 ;

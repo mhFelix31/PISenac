@@ -28,9 +28,15 @@ public class PedidoController {
     }
 
     @GetMapping
-    public Page<PedidoDTO> ListarComLimite(@PageableDefault(size=3,sort= {"data"}) Pageable paginacao) {
+    public Page<PedidoDTO> ListarComLimite(@PageableDefault(size=5,sort= {"data"}) Pageable paginacao) {
         return repository.findAll(paginacao).map(PedidoDTO::new);
     }
+
+    @GetMapping("/{id}")
+    public PedidoDTO ListarComLimite(@PathVariable int id) {
+        return new PedidoDTO(repository.getReferenceById(id));
+    }
+
 
     @PutMapping("/{id}")
     @Transactional

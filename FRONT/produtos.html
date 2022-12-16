@@ -56,27 +56,46 @@
         </aside>
 
         <main>
-            <div class="date">
-                    <input type="text" placeholder="Pesquise o código" id="campoPesquisa">
-            </div>
-            <div>
-                <form>
-                    <th><input type="text" id="codigo" name="codigo"placeholder="insira o codigo do produto"></th>
-                    <th><input type="text" id="nome" placeholder="insira o nome do produto"></th>
-                    <th><input type="text" id="preco" placeholder="insira o preco do produto"></th>
-                    <th><input type="text" id="descricao" placeholder="insira o descricao do produto"></th>
-                    <th><input type="checkbox" id="materiaPrima"></th>
-                    <th><button class="Add" id="btn-adicionar" onclick="Post(codigo.value,nome.value,preco.value,descricao.value,materiaPrima.value,null,null,null)">
-                        Adicionar
-                    </button></th>
-                    <th><button class="alterar" id="btn-alterar" onclick="Put(codigo.value,nome.value,preco.value,descricao.value,materiaPrima.value,null,null,null)">
-                        Alterar
-                    </button></th>
-                </form>
-            </div>
+            <div class="pesquisa_box">
+                <h2>Pesquisar</h2>
+                <input  class="inputado" type="text" placeholder="Pesquise o código..." id="campoPesquisa">                    
+                <button class="inputadoButton" id="btn-adicionar" onclick="ReadWithID(campoPesquisa.value)">
+                    Pesquisar
+                </button>
+        </div>
+        <div  class="recent-orders">
+            <table>
+                <thead>
+                <tr>
+                    <th>Codigo do Pedido</th>
+                    <th>Status</th>
+                    <th>Preço Venda</th>
+                </tr>
+            </thead>
+                <tbody class="pesquisaRead">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="formulario_input">
+            <form >
+                <h2>Adicionar</h2>
+                <input class="inputado" type="text" id="codigo" name="codigo"placeholder="Codigo...">
+                <input class="inputado" type="text" id="nome" placeholder="Nome...">
+                <input class="inputado" type="text" id="preco" placeholder="Preço...">
+                <input class="inputado" type="text" id="descricao" placeholder="Descrição...">
+                <input type="checkbox" id="materiaPrima"class="regular-checkbox">
+                <button class="inputadoButton" id="btn-adicionar" type='button' onclick="Post(codigo.value,nome.value,preco.value,descricao.value,materiaPrima.value,null,null,null)">
+                    Adicionar
+                </button>
+                <button class="inputadoButton" id="btn-alterar" type='button'onclick="Put(codigo.value,nome.value,preco.value,descricao.value,materiaPrima.value,null,null,null)">
+                    Alterar
+                </button>
+            </form>
+        </div>
             <div class="recent-orders">
                 <h2>Produtos</h2>
-                <table id="dados">
+                <table>
                     <thead>
                         <tr>
                             <th>Codigo do Produto</th>
@@ -85,9 +104,18 @@
                             <th>É Materia prima?</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody class="ReadTable"></tbody>
                 </table>
             </div>
+            <div class="pesquisa_box">
+                <h2>DELETAR</h2>
+                <input  class="inputado" type="text" placeholder="Delete o código..." id="campoPesquisa">                    
+                <button class="inputadoButton" id="btn-adicionar" onclick="Delete(campoPesquisa.value)">
+                    Deletar
+                </button>
+        </div>
+
+
         </main>
 
         <div class="right">

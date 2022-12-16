@@ -697,3 +697,36 @@ main .recent-orders a{
   }
 
 }
+
+.pesquisa_box{
+    padding-top: 3%;
+
+}
+.formulario_input{    
+
+    padding-top: 3%;
+}
+.inputado{
+    margin-left: 1%;
+    
+    border-radius: 5%;
+}
+
+.inputadoButton{   
+    margin-left: 1%;
+    width: 15%; 
+    height: 20px;
+    border-radius: 5%;
+
+}
+.regular-checkbox{
+	width: 20px;
+	height: 20px;
+	border: 2px solid #555555;
+	background-clip: content-box;
+	padding: 3px;
+}
+
+.regular-checkbox:checked {
+	background-color: #555555;
+}
